@@ -1,0 +1,652 @@
+package test;
+
+public class asas {
+	
+		public static void main(String[] args){		
+			
+			
+			
+			 // n = 10   weight (0,1)
+			
+				double  totalw =0;
+				long totalt = 0;
+				
+				for (int p =0;p<15;p++){
+				int num = 10;
+				int k=0;
+				double sum = 0;
+				disjoint d = new disjoint();
+				quicksort q = new quicksort();
+				edges e = new edges(0,0,0.1);
+				graph g = new graph();
+			
+				double[][] graph1 = g.generate(num);
+				edges[] edgelist1 = g.listedges(graph1);
+				edges[] e1 = new edges[num-1];
+				
+				long startTime = System.currentTimeMillis();//start
+			
+				for(int i1 =0;i1<num;i1++){         					 //Initialize Disjoint set
+					d.make_set(i1);
+				}
+				
+				q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by their weight
+				
+				
+				for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+				{   
+					if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+						e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+						d.union_set(edgelist1[i].start, edgelist1[i].end);
+						k++;
+					}
+				}
+				
+				for (int i2=0;i2<e1.length;i2++)    					//calculate L(n)
+				{ 
+					sum = sum + e1[i2].weight;
+				}
+				long endTime = System.currentTimeMillis();  			// remember running time
+				totalw = totalw + sum;
+				totalt = totalt + endTime - startTime;					
+			}
+			
+			System.out.println("When n = 10       weight range (0,1)     Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+			
+			
+			
+				
+			// n = 100    weight (0,1)
+				totalw =0;
+				totalt = 0;
+				for (int p =0;p<15;p++){
+					int num = 100;
+					int k=0;
+					double sum = 0;
+					disjoint d = new disjoint();
+					quicksort q = new quicksort();
+					edges e = new edges(0,0,0.1);
+					graph g = new graph();
+		
+					double[][] graph1 = g.generate(num);
+					edges[] edgelist1 = g.listedges(graph1);
+					edges[] e1 = new edges[num-1];
+					
+					long startTime = System.currentTimeMillis();//start
+			
+					for(int i1 =0;i1<num;i1++){         					 // Initialize Disjoint set
+						d.make_set(i1);
+					}
+			
+					q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by their weight
+			
+					for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+					{   
+						if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+							e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+							d.union_set(edgelist1[i].start, edgelist1[i].end);
+							k++;
+						}
+					}
+			
+					for (int i2=0;i2<e1.length;i2++)    					// calculate L(n)
+					{ 
+						sum = sum + e1[i2].weight;
+					}
+			
+					long endTime = System.currentTimeMillis();				// remember running time
+					totalw = totalw + sum;
+					totalt = totalt + endTime - startTime;
+				}
+				
+				System.out.println("When n = 100      weight range (0,1)     Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+		
+		
+		
+				// n = 200
+				
+				totalw =0;
+				totalt = 0;
+				
+				for (int p =0;p<15;p++){
+					int num = 200;
+					int k=0;
+					double sum = 0;
+					disjoint d = new disjoint();
+					quicksort q = new quicksort();
+					edges e = new edges(0,0,0.1);
+					graph g = new graph();
+					
+					double[][] graph1 = g.generate(num);
+					edges[] edgelist1 = g.listedges(graph1);
+					edges[] e1 = new edges[num-1];
+		
+					long startTime = System.currentTimeMillis();//start
+	
+					for(int i1 =0;i1<num;i1++){         					 // Initialize Disjoint set
+						d.make_set(i1);
+					}
+		
+					q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by their weight
+		
+					for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+					{   
+						if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+							e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+							d.union_set(edgelist1[i].start, edgelist1[i].end);
+							k++;
+						}
+					}
+		
+					for (int i2=0;i2<e1.length;i2++)    					//calculate L(n)
+					{ 
+						sum = sum + e1[i2].weight;
+					}
+		
+					long endTime = System.currentTimeMillis();				// remember running time
+					totalw = totalw + sum;
+					totalt = totalt + endTime - startTime;
+		
+				}
+	
+				System.out.println("When n = 200      weight range (0,1)     Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+	
+	
+				// n = 500  weight (0,1)
+				
+				totalw  =0;
+				totalt  = 0;
+
+				for (int p =0;p<15;p++){
+					int num = 500;
+					int k=0;
+					double sum = 0;
+					disjoint d = new disjoint();
+					quicksort q = new quicksort();
+					edges e = new edges(0,0,0.1);
+					graph g = new graph();
+
+					double[][] graph1 = g.generate(num);
+					edges[] edgelist1 = g.listedges(graph1);
+					edges[] e1 = new edges[num-1];
+	
+					long startTime = System.currentTimeMillis();//start
+
+					for(int i1 =0;i1<num;i1++){         					// Initialize Disjoint set
+						d.make_set(i1);
+					}
+	
+					q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by their weight
+	
+					for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+					{   
+						if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+							e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+							d.union_set(edgelist1[i].start, edgelist1[i].end);
+							k++;
+						}
+					}
+	
+					for (int i2=0;i2<e1.length;i2++)    					//calculate L(n)
+					{ 
+						sum = sum + e1[i2].weight;
+					}
+	
+					long endTime = System.currentTimeMillis();			// remember running time
+					totalw = totalw + sum;
+					totalt = totalt + endTime - startTime;
+	
+				}
+
+				System.out.println("When n = 500      weight range (0,1)     Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+
+				
+				
+				 
+			// n = 1000   weight (0,1)
+				
+				totalw  =0;
+				totalt  = 0;
+				for (int p =0;p<15;p++){
+					int num = 1000;
+					int k=0;
+					double sum = 0;
+					disjoint d = new disjoint();
+					quicksort q = new quicksort();
+					edges e = new edges(0,0,0.1);
+					graph g = new graph();
+					
+					double[][] graph1 = g.generate(num);
+					edges[] edgelist1 = g.listedges(graph1);
+					edges[] e1 = new edges[num-1];
+
+					long startTime = System.currentTimeMillis();//start
+
+					for(int i1 =0;i1<num;i1++){         					// Initialize Disjoint set
+						d.make_set(i1);
+					}
+
+					q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by there weight
+
+					for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+					{   
+						if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+							e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+							d.union_set(edgelist1[i].start, edgelist1[i].end);
+							k++;
+						}
+					}
+					
+					for (int i2=0;i2<e1.length;i2++)    					//calculate L(n)
+					{ 
+						sum = sum + e1[i2].weight;
+					}
+
+						long endTime = System.currentTimeMillis();				// remember running time
+						totalw = totalw + sum;
+						totalt = totalt + endTime - startTime;
+					}
+
+					System.out.println("When n = 1000     weight range (0,1)     Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+				
+				
+				
+				
+					// n = 10   weight (0,0.5)
+				
+					totalw =0;
+					totalt = 0;
+				 
+					for (int p =0;p<15;p++){
+						int num = 10;
+						int k=0;
+						double sum = 0;
+						disjoint d = new disjoint();
+						quicksort q = new quicksort();
+						edges e = new edges(0,0,0.1);
+						graph g = new graph();
+			
+						double[][] graph1 = g.generatehalf(num);
+						edges[] edgelist1 = g.listedges(graph1);
+						edges[] e1 = new edges[num-1];
+				
+						long startTime = System.currentTimeMillis();//start
+			
+						for(int i1 =0;i1<num;i1++){         					 //Initialize Disjoint set
+							d.make_set(i1);
+						}
+				
+						q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by their weight
+				
+				
+						for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+						{   
+							if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+								e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+								d.union_set(edgelist1[i].start, edgelist1[i].end);
+								k++;
+							}
+						}
+						
+						for (int i2=0;i2<e1.length;i2++)    					//calculate L(n)
+						{ 
+							sum = sum + e1[i2].weight;
+						}
+						long endTime = System.currentTimeMillis();  			// remember running time
+						totalw = totalw + sum;
+						totalt = totalt + endTime - startTime;					
+					}
+			
+					System.out.println("When n = 10       weight range (0,0.5)   Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+				
+			
+			
+			
+			
+					// n = 100   weight (0,0.5)
+			
+					totalw =0;
+					totalt = 0;
+			
+					for (int p =0;p<15;p++){
+						int num = 100;
+						int k=0;
+						double sum = 0;
+						disjoint d = new disjoint();
+						quicksort q = new quicksort();
+						edges e = new edges(0,0,0.1);
+						graph g = new graph();
+		
+						double[][] graph1 = g.generatehalf(num);
+						edges[] edgelist1 = g.listedges(graph1);
+						edges[] e1 = new edges[num-1];
+			
+						long startTime = System.currentTimeMillis();//start
+		
+						for(int i1 =0;i1<num;i1++){         					 //Initialize Disjoint set
+							d.make_set(i1);
+						}
+			
+						q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by their weight
+			
+			
+						for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+						{   
+							if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+								e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+								d.union_set(edgelist1[i].start, edgelist1[i].end);
+								k++;
+							}
+						}
+			
+						for (int i2=0;i2<e1.length;i2++)    					//calculate L(n)
+						{ 
+							sum = sum + e1[i2].weight;
+						}
+						long endTime = System.currentTimeMillis();  			// remember running time
+						totalw = totalw + sum;
+						totalt = totalt + endTime - startTime;					
+					}
+		
+					System.out.println("When n = 100      weight range (0,0.5)   Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+		
+		
+		 
+		
+					// n = 200   weight (0,0.5)
+		
+					totalw =0;
+					totalt = 0;
+		
+					for (int p =0;p<15;p++){
+						int num = 200;
+						int k=0;
+						double sum = 0;
+						disjoint d = new disjoint();
+						quicksort q = new quicksort();
+						edges e = new edges(0,0,0.1);
+						graph g = new graph();
+	
+						double[][] graph1 = g.generatehalf(num);
+						edges[] edgelist1 = g.listedges(graph1);
+						edges[] e1 = new edges[num-1];
+		
+						long startTime = System.currentTimeMillis();//start
+	
+						for(int i1 =0;i1<num;i1++){         					 //Initialize Disjoint set
+							d.make_set(i1);
+						}
+		
+						q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by their weight
+		
+		
+						for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+						{   
+							if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+								e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+								d.union_set(edgelist1[i].start, edgelist1[i].end);
+								k++;
+							}
+						}
+		
+						for (int i2=0;i2<e1.length;i2++)    					//calculate L(n)
+						{ 
+							sum = sum + e1[i2].weight;
+						}
+						long endTime = System.currentTimeMillis();  			// remember running time
+						totalw = totalw + sum;
+						totalt = totalt + endTime - startTime;					
+					}
+	
+					System.out.println("When n = 200      weight range (0,0.5)   Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+	
+	
+	
+	
+	
+					// n = 500   weight (0,0.5)
+	
+					totalw =0;
+					totalt = 0;
+	
+					for (int p =0;p<15;p++){
+						int num = 500;
+						int k=0;
+						double sum = 0;
+						disjoint d = new disjoint();
+						quicksort q = new quicksort();
+						edges e = new edges(0,0,0.1);
+						graph g = new graph();
+
+						double[][] graph1 = g.generatehalf(num);
+						edges[] edgelist1 = g.listedges(graph1);
+						edges[] e1 = new edges[num-1];
+	
+						long startTime = System.currentTimeMillis();//start
+
+						for(int i1 =0;i1<num;i1++){         					 //Initialize Disjoint set
+							d.make_set(i1);
+						}
+	
+						q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by their weight
+	
+	
+						for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+						{   
+							if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+								e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+								d.union_set(edgelist1[i].start, edgelist1[i].end);
+								k++;
+							}
+						}
+	
+						for (int i2=0;i2<e1.length;i2++)    					//calculate L(n)
+						{ 
+							sum = sum + e1[i2].weight;
+						}
+						long endTime = System.currentTimeMillis();  			// remember running time
+						totalw = totalw + sum;
+						totalt = totalt + endTime - startTime;					
+					}
+
+					System.out.println("When n = 500      weight range (0,0.5)   Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+
+
+
+
+					// n = 1000   weight (0,0.5)
+
+					totalw =0;
+					totalt = 0;
+
+					for (int p =0;p<15;p++){
+						int num = 1000;
+						int k=0;
+						double sum = 0;
+						disjoint d = new disjoint();
+						quicksort q = new quicksort();
+						edges e = new edges(0,0,0.1);
+						graph g = new graph();
+
+						double[][] graph1 = g.generatehalf(num);
+						edges[] edgelist1 = g.listedges(graph1);
+						edges[] e1 = new edges[num-1];
+
+						long startTime = System.currentTimeMillis();//start
+
+						for(int i1 =0;i1<num;i1++){         					 //Initialize Disjoint set
+							d.make_set(i1);
+						}
+
+						q.e_sort(edgelist1, 0, edgelist1.length-1);  		//sort all edges by their weight
+
+
+						for (int i=0;i<edgelist1.length;i++)  				// Kruskal algorithm's body
+						{   
+							if(d.find_set(edgelist1[i].start) != d.find_set(edgelist1[i].end)){
+								e1[k] = new edges(edgelist1[i].start,edgelist1[i].end,edgelist1[i].weight);
+								d.union_set(edgelist1[i].start, edgelist1[i].end);
+								k++;
+							}
+						}
+
+						for (int i2=0;i2<e1.length;i2++)    					//calculate L(n)
+						{ 
+							sum = sum + e1[i2].weight;
+						}
+						long endTime = System.currentTimeMillis();  			// remember running time
+						totalw = totalw + sum;
+						totalt = totalt + endTime - startTime;					
+					}
+
+					System.out.println("When n = 1000     weight range (0,0.5)   Average L(n) = " + totalw / 15 + "   Average  Running Time: " + totalt / 15);
+
+ 
+
+			}// end of main method
+	}	
+
+
+
+class disjoint 							 // Implementation of disjoint set, including make_set,find_set,union_set.
+{            
+	 int n = 10000;
+	 int[] p = new int[n];
+	 int[] rank = new int[n];
+	
+	 void make_set(int i)
+	 {
+			p[i] = i;
+			rank[i] = 0;
+			//System.out.println("set made!");
+	}
+	
+	 int find_set(int x)
+	{
+		if (x != p[x]){
+			p[x]=find_set(p[x]);
+		}
+		return p[x];
+	}
+	
+	 void union_set(int x, int y)
+	{
+		int xroot = find_set(x);
+		int yroot = find_set(y);
+		
+		if(rank[xroot]>rank[yroot]){
+			p[yroot] = xroot;
+		}
+		else{
+			p[xroot] = yroot;
+		}
+		
+		if(xroot == yroot){
+			rank[yroot] = rank[yroot] + 1;
+		}
+	}
+}
+
+class quicksort 						// Implementation of quick_sort. can sort edges by their weights.
+{
+
+	public void e_sort(edges[] e,int l, int r)
+{
+	if (l < r)  
+    {  
+        //Swap(s[l], s[(l + r) / 2]); //将中间的这个数和第一个数交换   
+        int i = l, j = r;
+       double x = e[l].weight;  
+        while (i < j)  
+        {  
+            while(i < j && e[j].weight >= x) // 从右向左找第一个小于x的数  
+                j--;    
+            if(i < j)   
+                e[i++] = e[j];  
+              
+            while(i < j && e[i].weight < x) // 从左向右找第一个大于等于x的数  
+                i++;    
+            if(i < j)   
+                e[j--] = e[i];  
+        }  
+        e[i].weight = x;  
+        e_sort(e, l, i - 1); // 递归调用   
+        e_sort(e, i + 1, r);  
+    }  
+	}
+
+}
+
+
+class edges								// class of edges.
+{
+	int start,end;
+	double weight;
+		 
+	public edges(int start,int end, double weight)
+		 {
+			 this.start = start; 
+			 this.end = end;
+			 this.weight = weight;
+		 }
+
+}
+
+
+class graph								
+{
+		public double[][] generate(int n)     // generate a graph which edges are randomly weighted (0,1) and stored in a matrix
+		{
+			double[][] myMatrix = new double[n][n];
+			for(int i=0;i<n;i++){
+				for (int j=0;j<n;j++){
+					if(i==j){
+						myMatrix[i][j]=0;
+					}
+					else if (i>j){
+						double temp= Math.random();
+						myMatrix[i][j]=temp;
+						myMatrix[j][i]=myMatrix[i][j];
+						//System.out.println(myMatrix[i][j]);
+					}
+				}
+			}
+			return myMatrix;
+		}
+		public double[][] generatehalf(int n)     // generate a graph which edges are randomly weighted (0,0.5) and stored in a matrix
+		{
+			double[][] myMatrix = new double[n][n];
+			for(int i=0;i<n;i++){
+				for (int j=0;j<n;j++){
+					if(i==j){
+						myMatrix[i][j]=0;
+					}
+					else if (i>j){
+						double temp = Math.random()/2;
+						myMatrix[i][j]=temp;
+						myMatrix[j][i]=myMatrix[i][j];
+						//System.out.println(myMatrix[i][j]);
+					}
+				}
+			}
+			return myMatrix;
+		}
+				
+		public edges[] listedges(double[][] d)  //    transform a graph matrix to a array of type "edges"
+		{
+			int k = 0;
+			edges[] elist = new edges[d.length * (d.length - 1)];
+			
+			for(int i=0;i<d.length;i++){
+				for (int j=0;j<d[0].length;j++){
+					if(i!=j){
+					elist[k] = new edges(i,j,d[i][j]); 
+					k++;
+					}
+				}					
+			}
+			
+			return elist;
+			
+		}
+}
